@@ -33,16 +33,10 @@ RUN apt-get install -y \
          wget
 
 # libboost-all-dev \
-#RUN wget https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2 \
-#   && tar --bzip2 -xf boost_1_73_0.tar.bz2 \
-#   && cd boost_1_73_0 \
-#   && bash bootstrap.sh \
-#   && ./b2 install
-#RUN cmake ../ -DCMAKE_BUILD_TYPE:STRING=Release \
-#    -DBUILD_SHORT:BOOL=ON \
-#    -DBUILD_MEDIUM:BOOL=ON \
-#    -DBUILD_LONG:BOOL=ON \
-#    -DBUILD_TESTS_LONG:BOOL=OFF
-#dpkg -s libboost-dev | grep 'Version'
+RUN wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2 \
+   && tar --bzip2 -xf boost_1_68_0.tar.bz2 \
+   && cd boost_1_68_0 \
+   && bash bootstrap.sh \
+   && ./b2 install
 
-RUN git clone https://github.com/smart-fm/simmobility-prod.git
+RUN cd / && rm boost_1_68_0.tar.bz2
